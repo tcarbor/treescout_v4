@@ -1,0 +1,203 @@
+
+{
+  "clients": {
+    "c_veridian": {
+      "name": "Veridian Dynamics HOA",
+      "contacts": [
+        { "name": "Elena Vance", "email": "elena.vance@veridiandynamics.com", "phone": "555-0101" }
+      ]
+    },
+    "c_piedmont": {
+      "name": "Piedmont Golf & Country Club",
+      "contacts": [
+        { "name": "Marcus Thorne", "email": "m.thorne@piedmontgcc.com", "phone": "555-0102" }
+      ]
+    }
+  },
+  "properties": {
+    "p_veridian_lake": {
+      "clientId": "c_veridian",
+      "name": "Veridian Lakefront Park",
+      "address": "100 Lakeview Dr, Greenville, SC",
+      "location": { "lat": 34.8526, "lng": -82.3940 }
+    },
+    "p_veridian_club": {
+      "clientId": "c_veridian",
+      "name": "Veridian Clubhouse Grounds",
+      "address": "150 Clubhouse Rd, Greenville, SC",
+      "location": { "lat": 34.8550, "lng": -82.3980 }
+    },
+    "p_piedmont_back9": {
+      "clientId": "c_piedmont",
+      "name": "Piedmont Back Nine",
+      "address": "500 Fairway Blvd, Augusta, GA",
+      "location": { "lat": 33.4735, "lng": -82.0232 }
+    }
+  },
+  "trees": {
+    "t_1": {
+      "propertyId": "p_veridian_lake", "species": "Quercus virginiana (Southern Live Oak)", "dbh": 38, "condition": "Good",
+      "location": { "lat": 34.8528, "lng": -82.3942 }, "tags": ["landmark", "structure"]
+    },
+    "t_2": {
+      "propertyId": "p_veridian_lake", "species": "Magnolia grandiflora (Southern Magnolia)", "dbh": 22, "condition": "Excellent",
+      "location": { "lat": 34.8525, "lng": -82.3938 }, "tags": []
+    },
+    "t_3": {
+      "propertyId": "p_veridian_club", "species": "Liquidambar styraciflua (American Sweetgum)", "dbh": 18, "condition": "Fair",
+      "location": { "lat": 34.8552, "lng": -82.3985 }, "tags": ["light"]
+    },
+    "t_4": {
+      "propertyId": "p_piedmont_back9", "species": "Pinus taeda (Loblolly Pine)", "dbh": 28, "condition": "Good",
+      "location": { "lat": 33.4733, "lng": -82.0230 }, "tags": []
+    },
+    "t_5": {
+      "propertyId": "p_piedmont_back9", "species": "Taxodium distichum (Bald Cypress)", "dbh": 32, "condition": "Good",
+      "location": { "lat": 33.4738, "lng": -82.0235 }, "tags": ["crane", "heavy rigging"]
+    },
+    "t_6": {
+      "propertyId": "p_piedmont_back9", "species": "Quercus phellos (Willow Oak)", "dbh": 24, "condition": "Poor",
+      "location": { "lat": 33.4740, "lng": -82.0228 }, "tags": ["removal_candidate"]
+    }
+  },
+  "scans": {
+    "s_veridian_lake": {
+      "treeId": "t_1", "propertyId": "p_veridian_lake", "storagePath": "/properties/p_veridian_lake/scans/s_veridian_lake/potree_bundle/cloud.js",
+      "createdAt": "2025-10-20T10:00:00Z",
+      "_collections": {
+        "annotations": {
+          "a_1": { "type": "point", "data": {"x": 12.5, "y": 28.1, "z": 6.3}, "notes": "End-weight needs reduction.", "linkedRecommendationId": "r_3" },
+          "a_2": { "type": "circle", "data": {"x": 10.1, "y": 24.8, "z": 5.9, "radius": 1.2}, "notes": "Cavity observed." }
+        }
+      }
+    },
+    "s_piedmont_back9": {
+      "treeId": "t_5", "propertyId": "p_piedmont_back9", "storagePath": "/properties/p_piedmont_back9/scans/s_piedmont_back9/potree_bundle/cloud.js",
+      "createdAt": "2025-11-01T14:30:00Z",
+       "_collections": {
+        "annotations": {
+          "a_3": { "type": "polygon", "data": [{"x": 9.1, "y": 16.2, "z": 2.5}, {"x": 10.3, "y": 17.5, "z": 2.6}, {"x": 9.5, "y": 18.0, "z": 2.4}], "notes": "Root flare requires excavation." }
+        }
+      }
+    }
+  },
+  "recommendations": {
+    "r_1": {
+      "propertyId": "p_veridian_lake", "treeIds": ["t_1", "t_2"], "serviceCode": "PHC-SOIL-STD", "rsaProgramId": "rsa_soil",
+      "status": "approved", "perVisitPrice": 450, "createdAt": "2025-10-21T11:00:00Z", "notes": "Annual soil care program for landmark trees."
+    },
+    "r_2": {
+      "propertyId": "p_veridian_club", "treeIds": ["t_3"], "serviceCode": "PRUN-CLEAN", "status": "recommended",
+      "perVisitPrice": 375, "createdAt": "2025-10-22T09:30:00Z", "notes": "Crown clean to remove deadwood."
+    },
+    "r_3": {
+      "propertyId": "p_veridian_lake", "treeIds": ["t_1"], "serviceCode": "PRUN-REDUCE", "status": "proposed",
+      "perVisitPrice": 850, "createdAt": "2025-10-21T14:00:00Z", "notes": "Reduce heavy limb as marked in 3D scan.", "linkedAnnotationId": "a_1"
+    },
+    "r_4": {
+      "propertyId": "p_piedmont_back9", "treeIds": ["t_6"], "serviceCode": "REMV-TREE", "status": "recommended",
+      "perVisitPrice": 2200, "createdAt": "2025-11-02T10:00:00Z", "notes": "Remove declining oak near 14th hole."
+    }
+  },
+  "jobs": {
+    "j_1": {
+      "propertyId": "p_veridian_lake", "recommendationId": "r_1", "status": "pending", "scheduledDate": "2026-03-15T09:00:00Z",
+      "notes": "First soil application for the season."
+    }
+  },
+  "touchpoints": {
+    "tp_1": {
+      "clientId": "c_veridian", "type": "meeting", "notes": "Annual plan review with Elena.", "date": "2025-09-15T14:00:00Z"
+    }
+  },
+  "contacts": {
+    "contact_1": { "clientId": "c_veridian", "name": "Elena Vance", "email": "elena.vance@veridiandynamics.com", "phone": "555-0101", "isPrimary": true },
+    "contact_2": { "clientId": "c_piedmont", "name": "Marcus Thorne", "email": "m.thorne@piedmontgcc.com", "phone": "555-0102", "isPrimary": true }
+  },
+  "portalLinks": {
+    "pl_1": {
+      "propertyId": "p_veridian_lake", "url": "https://example.com/portal/veridian-lake", "accessCode": "lake-2025", "createdAt": "2025-01-10T10:00:00Z"
+    }
+  },
+  "files": {
+    "f_1": {
+      "propertyId": "p_piedmont_back9", "fileName": "2025_Course_Proposal.pdf", "storagePath": "/properties/p_piedmont_back9/files/f_1_proposal.pdf",
+      "uploadedAt": "2025-02-15T16:00:00Z"
+    }
+  },
+  "species": {
+    "sp_1": { "name": "Pinus taeda (Loblolly Pine)" },
+    "sp_2": { "name": "Quercus virginiana (Southern Live Oak)" },
+    "sp_3": { "name": "Magnolia grandiflora (Southern Magnolia)" },
+    "sp_4": { "name": "Taxodium distichum (Bald Cypress)" },
+    "sp_5": { "name": "Carya illinoinensis (Pecan)" },
+    "sp_6": { "name": "Liquidambar styraciflua (American Sweetgum)" },
+    "sp_7": { "name": "Liriodendron tulipifera (Tulip Poplar)" },
+    "sp_8": { "name": "Quercus phellos (Willow Oak)" },
+    "sp_9": { "name": "Cornus florida (Flowering Dogwood)" },
+    "sp_10": { "name": "Nyssa sylvatica (Black Gum)" }
+  },
+  "tagOptions": {
+    "tag_1": { "name": "lift" }, "tag_2": { "name": "bucket" }, "tag_3": { "name": "crane" },
+    "tag_4": { "name": "MAD" }, "tag_5": { "name": "heavy rigging" }, "tag_6": { "name": "structure" },
+    "tag_7": { "name": "light" }, "tag_8": { "name": "811" }
+  },
+  "rsaPrograms": {
+    "rsa_soil":   {"programCode":"RSA-SOIL","programName":"Soil Care RSA","type":"RSA","frequency":"2×/year","seasonality":"Flexible","pricingBasis":"Per visit","includes":"Soil fertilization + phosphite"},
+    "rsa_soilrest":{"programCode":"RSA-SOILREST","programName":"Soil Restoration RSA","type":"RSA","frequency":"1×/year","seasonality":"On-demand","pricingBasis":"Per visit","includes":"Air-spade + biochar"},
+    "rsa_dis":    {"programCode":"RSA-DIS","programName":"Disease Suppression RSA","type":"RSA","frequency":"3×/year","seasonality":"Flexible","pricingBasis":"Per visit","includes":"Phosphite + Reliant"},
+    "rsa_insect": {"programCode":"RSA-INSECT","programName":"Insect Suppression RSA","type":"RSA","frequency":"3×/year","seasonality":"Seasonal","pricingBasis":"Per visit","includes":"Systemic + IGR options"},
+    "rsa_bio":    {"programCode":"RSA-BIO","programName":"Biological Insect RSA","type":"RSA","frequency":"3×/year","seasonality":"Seasonal","pricingBasis":"Per visit","includes":"Beneficials + mild sprays"},
+    "rsa_camb":   {"programCode":"RSA-CAMB","programName":"Growth Regulation RSA (Cambistat)","type":"RSA","frequency":"2-year","seasonality":"Fixed","pricingBasis":"Per inch DBH","includes":"Cambistat"},
+    "rsa_trim":   {"programCode":"RSA-TRIM","programName":"Trimtect RSA","type":"RSA","frequency":"1×/year","seasonality":"Seasonal","pricingBasis":"Per sq ft canopy","includes":"Trimtect foliar spray"},
+    "rsa_eab":    {"programCode":"RSA-EAB","programName":"EAB Injection RSA","type":"RSA","frequency":"2-year","seasonality":"Fixed","pricingBasis":"Per inch DBH","includes":"Emamectin injections"},
+    "rsa_shrub":  {"programCode":"RSA-SHRUB","programName":"Shrub & Small Tree RSA","type":"RSA","frequency":"1×/year","seasonality":"Seasonal","pricingBasis":"Per ft height","includes":"Lepitect"},
+    "rsa_fert":   {"programCode":"RSA-FERT","programName":"Deep Root Fertilization RSA","type":"RSA","frequency":"2×/year","seasonality":"Flexible","pricingBasis":"Per visit","includes":"NPK + Micros"},
+    "rsa_multi":  {"programCode":"RSA-MULTI","programName":"Multi-Year Tree Management RSA","type":"RSA","frequency":"Annual Rolling","seasonality":"Variable","pricingBasis":"Plan-based","includes":"PHC + Pruning + Removal"}
+  },
+  "servicesCatalog": {
+    "PHC-SOIL-STD": {"groupCode":"PHC","subgroupCode":"PHC-SOIL","name":"Soil Care Program – Standard RSA","type":"RSA / Recurring","frequencyCycle":"2× per year (flexible)","description":"Core nutrient and biological soil program for root health and vigor. Includes phosphite and annual inspection.","availableTags":[]},
+    "PHC-SOIL-APP": {"groupCode":"PHC","subgroupCode":"PHC-SOIL","name":"Soil Care Application – Standard","type":"One-Off","frequencyCycle":"As needed","description":"Single soil care service using balanced fertilizer and phosphite for root development.","availableTags":[]},
+    "PHC-SOIL-REST": {"groupCode":"PHC","subgroupCode":"PHC-SOIL-REST","name":"Soil Restoration Program","type":"RSA Add-On / One-Off","frequencyCycle":"Annual or as-needed","description":"Air-spade, compost, and biochar amendment for compacted or declining trees.","availableTags":[]},
+    "PHC-DIS-PROG": {"groupCode":"PHC","subgroupCode":"PHC-DIS","name":"Phosphite & Disease Suppression Program","type":"RSA / Recurring","frequencyCycle":"3× per year","description":"Systemic fungicide defense against Phytophthora, Armillaria, and root rot.","availableTags":[]},
+    "PHC-DIS-TREAT": {"groupCode":"PHC","subgroupCode":"PHC-DIS","name":"Phytophthora / Disease Suppression Treatment","type":"One-Off","frequencyCycle":"As needed","description":"Fungicide drench or bark spray to reduce canker and root pathogen activity.","availableTags":[]},
+    "PHC-INSECT-PROG": {"groupCode":"PHC","subgroupCode":"PHC-INSECT","name":"Systemic Insect Suppression Program","type":"RSA / Recurring","frequencyCycle":"3× per year (seasonal windows)","description":"Systemic soil/trunk insecticide program for borers, aphids, and scale. Optional IGR add-on.","availableTags":[]},
+    "PHC-INSECT-TREAT": {"groupCode":"PHC","subgroupCode":"PHC-INSECT","name":"Systemic Insect Suppression Treatment","type":"One-Off","frequencyCycle":"As needed","description":"Site-specific insect suppression using systemic products.","availableTags":[]},
+    "PHC-BIO-RSA": {"groupCode":"PHC","subgroupCode":"PHC-BIO","name":"Biological Insect Management RSA","type":"RSA / Recurring","frequencyCycle":"3× per year","description":"Integrated pest management using beneficial insects and organic treatments.","availableTags":[]},
+    "PHC-BIO-TREAT": {"groupCode":"PHC","subgroupCode":"PHC-BIO","name":"Biological Insect Management Treatment","type":"One-Off","frequencyCycle":"As needed","description":"Biological pest control for sensitive landscapes and pollinator-safe zones.","availableTags":[]},
+    "PHC-BEETLE-PROG": {"groupCode":"PHC","subgroupCode":"PHC-BEETLE","name":"Bark & Boring Beetle Prevention Program","type":"RSA / Recurring","frequencyCycle":"3× per year","description":"Preventive trunk sprays for pine and hardwood borers.","availableTags":[]},
+    "PHC-BEETLE-SPRAY": {"groupCode":"PHC","subgroupCode":"PHC-BEETLE","name":"Bark Beetle Prevention Spray","type":"One-Off","frequencyCycle":"As needed","description":"Targeted bark beetle prevention or treatment.","availableTags":[]},
+    "PHC-EAB-PROG": {"groupCode":"PHC","subgroupCode":"PHC-EAB","name":"Emerald Ash Borer (EAB) Injection Program","type":"RSA / Recurring","frequencyCycle":"2-year cycle","description":"Trunk injection with emamectin benzoate for EAB protection.","availableTags":[]},
+    "PHC-EAB-TREAT": {"groupCode":"PHC","subgroupCode":"PHC-EAB","name":"Emerald Ash Borer Injection","type":"One-Off","frequencyCycle":"2-year cycle","description":"Single EAB treatment via trunk injection.","availableTags":[]},
+    "PHC-GR-CAMB": {"groupCode":"PHC","subgroupCode":"PHC-GR","name":"Growth Regulation Program – Cambistat","type":"RSA / Recurring","frequencyCycle":"2-year cycle","description":"Cambistat soil drench for growth control and drought tolerance.","availableTags":[]},
+    "PHC-GR-CAMB-APP": {"groupCode":"PHC","subgroupCode":"PHC-GR","name":"Cambistat Growth Regulator Application","type":"One-Off","frequencyCycle":"2-year cycle","description":"Single Cambistat soil application; DBH-based pricing.","availableTags":[]},
+    "PHC-GR-TRIM": {"groupCode":"PHC","subgroupCode":"PHC-GR","name":"Growth Regulation Program – Trimtect","type":"On-Demand","frequencyCycle":"Annual","description":"Foliar growth regulator for shrubs/hedges to reduce pruning frequency.","availableTags":[]},
+    "PHC-GR-TRIM-SPRAY": {"groupCode":"PHC","subgroupCode":"PHC-GR","name":"Trimtect Foliar Growth Regulation","type":"One-Off","frequencyCycle":"Annual","description":"One-time canopy spray for shoot control and density improvement.","availableTags":[]},
+    "PHC-FERT-PROG": {"groupCode":"PHC","subgroupCode":"PHC-FERT","name":"Deep Root Fertilization Program","type":"RSA / Recurring","frequencyCycle":"2× per year","description":"Custom NPK + micro blend to boost soil fertility and canopy recovery.","availableTags":[]},
+    "PHC-FERT-APP": {"groupCode":"PHC","subgroupCode":"PHC-FERT","name":"Deep Root Fertilization Application","type":"One-Off","frequencyCycle":"As needed","description":"Standalone deep root soil injection treatment.","availableTags":[]},
+    "PHC-ROOT-RCX": {"groupCode":"PHC","subgroupCode":"PHC-ROOT","name":"Root Collar Excavation (RCX)","type":"One-Off / Add-On","frequencyCycle":"As needed","description":"Air-spade excavation to expose root flare and correct girdling roots.","availableTags":[]},
+    "PHC-RISK-TRA": {"groupCode":"PHC","subgroupCode":"PHC-RISK","name":"Tree Risk Assessment & Inspection","type":"Annual / On-Demand","frequencyCycle":"1× or as-needed","description":"Professional TRAQ-level inspection with resistograph and drone data.","availableTags":[]},
+    "PHC-MGMT-MULTI": {"groupCode":"PHC","subgroupCode":"PHC-MGMT","name":"Multi-Year Tree Management RSA","type":"RSA / Rolling","frequencyCycle":"Annual renewal","description":"Property-level PHC + pruning + removal plan with rolling budget forecast.","availableTags":[]},
+    "PRUN-STRUCT": {"groupCode":"ARB","subgroupCode":"PRUN","name":"Structural Pruning","type":"One-Off","frequencyCycle":"As needed","description":"Reduce end weight and improve branch attachment angles for long-term stability.","availableTags":["lift","bucket","crane","MAD","heavy rigging","structure","light","811"]},
+    "PRUN-CLEAN": {"groupCode":"ARB","subgroupCode":"PRUN","name":"Crown Cleaning","type":"One-Off","frequencyCycle":"As needed","description":"Remove dead, dying, or diseased limbs to maintain canopy health.","availableTags":["lift","bucket","crane","MAD","heavy rigging","structure","light","811"]},
+    "PRUN-THIN": {"groupCode":"ARB","subgroupCode":"PRUN","name":"Crown Thinning","type":"One-Off","frequencyCycle":"As needed","description":"Selective removal of interior branches to increase light and airflow.","availableTags":["lift","bucket","crane","MAD","heavy rigging","structure","light","811"]},
+    "PRUN-RAISE": {"groupCode":"ARB","subgroupCode":"PRUN","name":"Crown Raising","type":"One-Off","frequencyCycle":"As needed","description":"Remove lower limbs to provide vertical clearance for buildings or pedestrians.","availableTags":["lift","bucket","crane","MAD","heavy rigging","structure","light","811"]},
+    "PRUN-REDUCE": {"groupCode":"ARB","subgroupCode":"PRUN","name":"Crown Reduction","type":"One-Off","frequencyCycle":"As needed","description":"Reduce overall canopy size while preserving natural form.","availableTags":["lift","bucket","crane","MAD","heavy rigging","structure","light","811"]},
+    "PRUN-VISTA": {"groupCode":"ARB","subgroupCode":"PRUN","name":"Vista Pruning","type":"One-Off","frequencyCycle":"As needed","description":"Pruning to restore views or improve sight lines while maintaining structure.","availableTags":["lift","bucket","crane","MAD","heavy rigging","structure","light","811"]},
+    "REMV-TREE": {"groupCode":"ARB","subgroupCode":"REMV","name":"Tree Removal","type":"One-Off","frequencyCycle":"As needed","description":"Complete removal of tree including cleanup and disposal.","availableTags":["lift","bucket","crane","MAD","heavy rigging","structure","light","811"]},
+    "REMV-STUMP": {"groupCode":"ARB","subgroupCode":"REMV","name":"Stump Grinding","type":"One-Off","frequencyCycle":"As needed","description":"Mechanical stump grinding to 4–6 inches below grade.","availableTags":["lift","bucket","crane","MAD","heavy rigging","structure","light","811"]},
+    "REMV-MULCH": {"groupCode":"ARB","subgroupCode":"REMV","name":"Forestry Mulching","type":"One-Off","frequencyCycle":"As needed","description":"On-site mulching of vegetation and stumps for land clearing.","availableTags":["lift","bucket","crane","MAD","heavy rigging","structure","light","811"]},
+    "TECH-CABLE": {"groupCode":"TECH","subgroupCode":"","name":"Cabling & Bracing","type":"One-Off","frequencyCycle":"As needed","description":"Install dynamic or static cables to support weak unions.","availableTags":[]},
+    "TECH-LIGHT": {"groupCode":"TECH","subgroupCode":"","name":"Lightning Protection","type":"One-Off","frequencyCycle":"As needed","description":"Install copper conductor system from canopy to ground rods.","availableTags":[]},
+    "HAUL-FEE": {"groupCode":"HAUL","subgroupCode":"","name":"Haul & Dump Fee","type":"Add-On","frequencyCycle":"Per load","description":"Material disposal surcharge for large debris or logs.","availableTags":[]},
+    "INST-PLANT": {"groupCode":"INST","subgroupCode":"","name":"Tree & Shrub Planting","type":"One-Off","frequencyCycle":"As scheduled","description":"Proper planting, staking, and watering setup with soil prep.","availableTags":[]},
+    "INST-DESIGN": {"groupCode":"INST","subgroupCode":"","name":"Landscape Design Consultation","type":"One-Off","frequencyCycle":"Per project","description":"Site plan and plant layout service billed hourly.","availableTags":[]},
+    "INST-TRANS": {"groupCode":"INST","subgroupCode":"","name":"Transplanting","type":"One-Off","frequencyCycle":"As needed","description":"Air-spade rootball prep and relocation via skid-steer.","availableTags":[]},
+    "INST-AIR": {"groupCode":"INST","subgroupCode":"","name":"Air-Spade Root Zone Work","type":"One-Off","frequencyCycle":"As needed","description":"Soil aeration and amendment for stressed trees.","availableTags":[]},
+    "CONS-VERB": {"groupCode":"CONS","subgroupCode":"","name":"Arborist Consultation (Verbal)","type":"One-Off","frequencyCycle":"Hourly","description":"Verbal consultation and site visit for condition or PHC advice.","availableTags":[]},
+    "CONS-WRITTEN": {"groupCode":"CONS","subgroupCode":"","name":"Written Arborist Report","type":"One-Off","frequencyCycle":"As needed","description":"Formal written arborist report with detailed recommendations.","availableTags":[]},
+    "CONS-GIS": {"groupCode":"CONS","subgroupCode":"","name":"Tree Inventory & GIS Management","type":"One-Off","frequencyCycle":"On-Demand","description":"Tree mapping, species cataloging, and condition scoring.","availableTags":[]},
+    "CONS-TSCAN": {"groupCode":"CONS","subgroupCode":"","name":"TreeScan Inspection & Report","type":"RSA / Annual","frequencyCycle":"Annual","description":"LiDAR + drone-based canopy inspection tied to RSA health score.","availableTags":[]},
+    "CONS-RENEW": {"groupCode":"CONS","subgroupCode":"","name":"Annual Inspection & RSA Renewal","type":"RSA Renewal","frequencyCycle":"Annual","description":"Annual PHC program renewal and inspection for RSA clients.","availableTags":[]}
+  }
+}

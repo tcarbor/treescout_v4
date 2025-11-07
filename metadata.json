@@ -1,0 +1,9 @@
+{
+  "name": "TreeScan Ops Deploy V1",
+  "description": "A UI prototype for arborists to manage property plans, tree inventory, and work recommendations.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone",
+    "camera"
+  ]
+}

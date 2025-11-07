@@ -1,0 +1,376 @@
+{
+  "meta": {
+    "format": "JSON",
+    "version": "1.1.0",
+    "projectId": "treescout-cloud",
+    "resourcePath": [],
+    "recursive": false,
+    "app": "firefoo"
+  },
+  "data": {
+    "__collections__": {
+      "settings": {
+        "default": {
+          "arboristName": "Aaron Byer",
+          "companyName": "Vertical Forestry",
+          "email": "aaron@example.com",
+          "phone": "404-555-1212",
+          "digitalCardUrl": "https://example.com/aaron-card",
+          "__collections__": {}
+        }
+      },
+
+      "users": {
+        "public": {
+          "__collections__": {
+            "settings": {
+              "profile": {
+                "arboristName": "Aaron Byer",
+                "companyName": "Vertical Forestry",
+                "email": "aaron@example.com",
+                "phone": "404-555-1212",
+                "digitalCardUrl": "https://example.com/aaron-card",
+                "__collections__": {}
+              }
+            }
+          }
+        }
+      },
+
+      "clients": {
+        "c_veridian": {
+          "name": "Veridian Dynamics HOA",
+          "contacts": [
+            { "name": "Elena Vance", "email": "elena.vance@veridiandynamics.com", "phone": "555-0101" }
+          ],
+          "__collections__": {}
+        },
+        "c_piedmont": {
+          "name": "Piedmont Golf & Country Club",
+          "contacts": [
+            { "name": "Marcus Thorne", "email": "m.thorne@piedmontgcc.com", "phone": "555-0102" }
+          ],
+          "__collections__": {}
+        }
+      },
+
+      "properties": {
+        "p_veridian_lake": {
+          "clientId": "c_veridian",
+          "name": "Veridian Lakefront Park",
+          "address": "100 Lakeview Dr, Greenville, SC",
+          "location": { "lat": 34.8526, "lng": -82.3940 },
+          "lidarUrl": "",
+          "__collections__": {}
+        },
+        "p_piedmont_back9": {
+          "clientId": "c_piedmont",
+          "name": "Piedmont Back Nine",
+          "address": "500 Fairway Blvd, Augusta, GA",
+          "location": { "lat": 33.4735, "lng": -82.0232 },
+          "lidarUrl": "",
+          "__collections__": {}
+        }
+      },
+
+      "trees": {
+        "t_1": {
+          "clientId": "c_veridian",
+          "propertyId": "p_veridian_lake",
+          "species": "Quercus virginiana (Southern Live Oak)",
+          "dbh": 38,
+          "height": 60,
+          "condition": "Good",
+          "location": { "lat": 34.8528, "lng": -82.3942 },
+          "tags": ["landmark", "structure"],
+          "sectionId": "sec_lake_east",
+          "isLandmark": true,
+          "isKeystone": false,
+          "__collections__": {}
+        },
+        "t_2": {
+          "clientId": "c_veridian",
+          "propertyId": "p_veridian_lake",
+          "species": "Magnolia grandiflora (Southern Magnolia)",
+          "dbh": 22,
+          "height": 35,
+          "condition": "Excellent",
+          "location": { "lat": 34.8525, "lng": -82.3938 },
+          "tags": [],
+          "sectionId": "sec_lake_east",
+          "isLandmark": false,
+          "isKeystone": false,
+          "__collections__": {}
+        },
+        "t_5": {
+          "clientId": "c_piedmont",
+          "propertyId": "p_piedmont_back9",
+          "species": "Taxodium distichum (Bald Cypress)",
+          "dbh": 32,
+          "height": 55,
+          "condition": "Good",
+          "location": { "lat": 33.4738, "lng": -82.0235 },
+          "tags": ["crane", "heavy rigging"],
+          "sectionId": "sec_back9_creek",
+          "isLandmark": false,
+          "isKeystone": true,
+          "__collections__": {}
+        }
+      },
+
+      "recommendations": {
+        "r_1": {
+          "clientId": "c_veridian",
+          "propertyId": "p_veridian_lake",
+          "treeIds": ["t_1", "t_2"],
+          "serviceCode": "PHC-SOIL-STD",
+          "rsaProgramId": "RSA-SOIL",
+          "kind": "PHC",
+          "perVisitPrice": 450,
+          "status": "approved",
+          "proposedYear": 2026,
+          "proposedQuarter": 1,
+          "inputs": { "notes": "Annual soil program for landmark trees." },
+          "notes": "Annual soil care program for landmark trees.",
+          "tags": ["soil", "rsa"],
+          "createdAtISO": "2025-10-21T11:00:00Z",
+          "__collections__": {}
+        },
+        "r_2": {
+          "clientId": "c_veridian",
+          "propertyId": "p_veridian_lake",
+          "treeIds": ["t_1"],
+          "serviceCode": "PRUN-REDUCE",
+          "kind": "Arbor",
+          "perVisitPrice": 850,
+          "status": "proposed",
+          "proposedYear": 2026,
+          "proposedQuarter": 2,
+          "notes": "Reduce end weight on east limb.",
+          "tags": ["structure"],
+          "createdAtISO": "2025-10-21T14:00:00Z",
+          "__collections__": {}
+        },
+        "r_3": {
+          "clientId": "c_piedmont",
+          "propertyId": "p_piedmont_back9",
+          "treeIds": ["t_5"],
+          "serviceCode": "REMV-TREE",
+          "kind": "Removal",
+          "perVisitPrice": 2200,
+          "status": "recommended",
+          "proposedYear": 2026,
+          "proposedQuarter": 1,
+          "notes": "Remove declining oak near 14th hole.",
+          "tags": ["safety"],
+          "createdAtISO": "2025-11-02T10:00:00Z",
+          "__collections__": {}
+        }
+      },
+
+      "planItems": {
+        "pi_1": {
+          "planId": "plan_lake_2026",
+          "propertyId": "p_veridian_lake",
+          "serviceCode": "PHC-SOIL-STD",
+          "budget": { "annualEstimate": 1800 },
+          "schedule": { "type": "annual", "year": 2026, "quarter": 1 },
+          "status": "planned",
+          "isRsaProgram": true,
+          "totalBudget": 1800,
+          "color": "#22c55e",
+          "__collections__": {}
+        }
+      },
+
+      "plans": {
+        "plan_lake_2026": {
+          "propertyId": "p_veridian_lake",
+          "name": "Veridian Lake – 2026 Plan",
+          "budgetOverrides": { "PHC-SOIL-STD": 1800 },
+          "__collections__": {}
+        }
+      },
+
+      "targetSets": {
+        "ts_lake_landmarks": {
+          "propertyId": "p_veridian_lake",
+          "name": "Landmark Trees",
+          "treeIds": ["t_1"],
+          "__collections__": {}
+        }
+      },
+
+      "recTemplates": {
+        "tmpl_prun_reduce": {
+          "serviceCode": "PRUN-REDUCE",
+          "name": "Crown Reduction",
+          "descriptionShort": "Reduce end weight and improve structure",
+          "category": "ARB",
+          "unitBasis": "Per tree",
+          "visitsPerYear": 1,
+          "__collections__": {}
+        },
+        "tmpl_soil_std": {
+          "serviceCode": "PHC-SOIL-STD",
+          "name": "Soil Care Program – Standard",
+          "descriptionShort": "Nutrient + phosphite soil program",
+          "category": "PHC",
+          "unitBasis": "Per visit",
+          "visitsPerYear": 2,
+          "__collections__": {}
+        }
+      },
+
+      "sections": {
+        "sec_lake_east": {
+          "propertyId": "p_veridian_lake",
+          "name": "Lake – East Grove",
+          "coords": [
+            { "lat": 34.8529, "lng": -82.3946 },
+            { "lat": 34.8529, "lng": -82.3936 },
+            { "lat": 34.8523, "lng": -82.3936 },
+            { "lat": 34.8523, "lng": -82.3946 }
+          ],
+          "__collections__": {}
+        },
+        "sec_back9_creek": {
+          "propertyId": "p_piedmont_back9",
+          "name": "Creekside",
+          "coords": [
+            { "lat": 33.4741, "lng": -82.0238 },
+            { "lat": 33.4741, "lng": -82.0227 },
+            { "lat": 33.4732, "lng": -82.0227 },
+            { "lat": 33.4732, "lng": -82.0238 }
+          ],
+          "__collections__": {}
+        }
+      },
+
+      "scoutReports": {
+        "sr_veridian_lake_oct": {
+          "propertyId": "p_veridian_lake",
+          "name": "October 2025 Scout Report",
+          "showGranularPricing": true,
+          "arboristUid": "public",
+          "__collections__": {}
+        }
+      },
+
+      "scoutItems": {
+        "si_1": {
+          "scoutReportId": "sr_veridian_lake_oct",
+          "sectionId": "sec_lake_east",
+          "title": "Soil Care – Landmark Live Oak",
+          "notes": "Phosphite + balanced NPK",
+          "estimatedBudget": 900,
+          "images": [
+            { "url": "https://picsum.photos/seed/soil/400/280", "notes": "Soil probe placement" }
+          ],
+          "location": { "lat": 34.85278, "lng": -82.39415 },
+          "__collections__": {}
+        },
+        "si_2": {
+          "scoutReportId": "sr_veridian_lake_oct",
+          "sectionId": "sec_lake_east",
+          "title": "Reduction – East Limb",
+          "notes": "End-weight reduction on overextended limb",
+          "estimatedBudget": 850,
+          "images": [
+            { "url": "https://picsum.photos/seed/reduce/400/280", "notes": "Marked limb" }
+          ],
+          "location": { "lat": 34.85270, "lng": -82.39405 },
+          "__collections__": {}
+        },
+        "si_3": {
+          "scoutReportId": "sr_veridian_lake_oct",
+          "sectionId": "sec_lake_east",
+          "title": "Photo Note – Cavity",
+          "notes": "Cavity observed at ~5ft, monitor",
+          "estimatedBudget": 0,
+          "images": [
+            { "url": "https://picsum.photos/seed/cavity/400/280", "notes": "Cavity close-up" }
+          ],
+          "location": { "lat": 34.85274, "lng": -82.39425 },
+          "__collections__": {}
+        }
+      },
+
+      "portalMessages": {
+        "pm_1": {
+          "reportId": "sr_veridian_lake_oct",
+          "text": "Can you confirm soil treatment timing?",
+          "author": "Client",
+          "location": { "lat": 34.85272, "lng": -82.39412 },
+          "createdAtISO": "2025-10-22T13:05:00Z",
+          "__collections__": {}
+        },
+        "pm_2": {
+          "reportId": "sr_veridian_lake_oct",
+          "text": "Yes — late fall window works well here.",
+          "author": "Arborist",
+          "createdAtISO": "2025-10-22T13:07:00Z",
+          "__collections__": {}
+        }
+      },
+
+      "scans": {
+        "scan_lake_t1": {
+          "treeId": "t_1",
+          "propertyId": "p_veridian_lake",
+          "potreeUrl": "/properties/p_veridian_lake/scans/scan_lake_t1/potree_bundle/cloud.js",
+          "createdAtISO": "2025-10-20T10:00:00Z",
+          "__collections__": {}
+        }
+      },
+
+      "rsaPrograms": {
+        "RSA-SOIL": {
+          "programCode": "RSA-SOIL",
+          "programName": "Soil Care RSA",
+          "type": "RSA",
+          "includes": "Soil fertilization + phosphite",
+          "frequency": "2×/year",
+          "seasonality": "Flexible",
+          "pricingBasis": "Per visit",
+          "__collections__": {}
+        }
+      },
+
+      "servicesCatalog": {
+        "PHC-SOIL-STD": {
+          "name": "Soil Care Program – Standard RSA",
+          "description": "Core nutrient + phosphite soil program",
+          "groupCode": "PHC",
+          "subgroupCode": "PHC-SOIL",
+          "type": "RSA / Recurring",
+          "frequencyCycle": "2× per year",
+          "availableTags": [],
+          "__collections__": {}
+        },
+        "PRUN-REDUCE": {
+          "name": "Crown Reduction",
+          "description": "Reduce end weight and improve structure",
+          "groupCode": "ARB",
+          "subgroupCode": "PRUN",
+          "type": "One-Off",
+          "frequencyCycle": "As needed",
+          "availableTags": ["structure", "bucket"],
+          "__collections__": {}
+        }
+      },
+
+      "species": {
+        "sp_001": { "name": "Quercus virginiana (Southern Live Oak)", "__collections__": {} },
+        "sp_002": { "name": "Magnolia grandiflora (Southern Magnolia)", "__collections__": {} }
+      },
+
+      "tagOptions": {
+        "tag_lift": { "name": "lift", "__collections__": {} },
+        "tag_bucket": { "name": "bucket", "__collections__": {} },
+        "tag_structure": { "name": "structure", "__collections__": {} },
+        "tag_rsa": { "name": "rsa", "__collections__": {} }
+      }
+    }
+  }
+}
